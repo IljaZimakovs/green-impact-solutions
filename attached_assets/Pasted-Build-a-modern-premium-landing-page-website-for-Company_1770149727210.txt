@@ -1,0 +1,101 @@
+Build a modern, premium landing-page website for:
+
+Company: Green Impact Solutions
+Tagline: End-to-End Product Engineering | Embedded, IoT, Mobile Apps & AI SaaS Platforms
+Location: Rosamond, California
+Founded: 2023
+Website: https://www.greenimpact.solutions/
+
+About:
+We are a product engineering company focused on building connected devices, scalable software platforms, and AI-powered applications. We deliver complete end-to-end solutions from custom hardware and firmware to cloud infrastructure and user-facing mobile and web applications. We work with individuals, startups, product companies building smart devices, IoT platforms, and intelligent digital products requiring tight integration between hardware, cloud, and applications.
+
+Core Expertise:
+- Embedded firmware for ESP32, STM32, ARM-based and custom boards
+- IoT connectivity + cloud integration using MQTT and AWS IoT Core
+- Mobile apps: React Native, Flutter, Swift, Kotlin
+- AI SaaS + web platforms: React, Next.js, Node.js, Python (OpenAI/RAG)
+- PCB design, hardware bring-up, real-time systems, protocols (UART/SPI/I2C), drivers
+- Cloud deployments, DevOps, CI/CD on AWS and GCP
+
+GOALS:
+1) Premium, enterprise-ready look
+2) Immediately communicate "hardware → firmware → cloud → mobile/web → AI"
+3) Convert visitors into leads (primary CTA: Start a Project; secondary CTA: Book a Call)
+4) Fast, responsive, SEO-friendly, accessible
+
+STYLE REQUIREMENTS:
+- Calm, simple, clean design (no neon colors, no heavy gradients)
+- Use neutral backgrounds (white/off-white) + soft grays
+- Use ONE accent color (deep blue or slate) for buttons and links
+- Use natural, clean images (engineering team, devices, modern offices, hardware lab, dashboards) — do NOT use cartoon illustrations
+- Use generous whitespace, premium typography, subtle shadows, rounded corners
+- Subtle animations only (fade in, hover lift). No flashy effects.
+- Overall vibe: minimal, trustworthy, modern engineering studio.
+
+TECH REQUIREMENTS:
+- React.js (App Router) + TypeScript + TailwindCSS
+- Component-based structure
+- Fully responsive (mobile-first)
+- Accessibility: semantic HTML, aria labels, good contrast, focus states
+- SEO: metadata for the landing page (title, description, OpenGraph)
+- Use local placeholder images or simple gradient placeholders (don’t depend on external image links that may break)
+- Include a contact form UI (front-end only) with validation and success message.
+- Include a top navigation with anchor links (single-page landing) and a footer.
+
+LANDING PAGE STRUCTURE (single-page with anchored sections):
+1) Header / Nav
+   - Logo text: Green Impact Solutions
+   - Nav links: Services, Industries, Process, Case Studies, About, Contact
+   - CTA button in nav: Start a Project
+
+2) Hero Section
+   - Headline: “End-to-End Product Engineering for IoT, Mobile & AI Platforms”
+   - Subheadline: Mention full-stack from embedded firmware to cloud to apps and AI
+   - Two CTAs: Start a Project + Book a Call
+   - Hero image: natural engineering/product scene with IoT + software feel
+   - Add a small “Trusted Engineering” strip (e.g., Embedded • IoT • Mobile • AI)
+
+3) Services Section (4 cards)
+   - Embedded Systems & Firmware (ESP32/STM32/ARM, RTOS, drivers)
+   - IoT & Cloud Platforms (MQTT, AWS IoT Core, device management)
+   - Mobile Apps (React Native/Flutter, iOS/Android, real-time features)
+   - AI SaaS & Web Platforms (React/Next, Node/Python, OpenAI/RAG)
+   Each card includes: short description + “What we deliver” bullet list.
+
+4) Industries Section (5 tiles)
+   - Smart Devices & IoT
+   - Industrial / Manufacturing
+   - Automotive / Telematics
+   - Healthcare / Wellness
+   - SaaS / Platforms
+   Each tile: “Common problem” + “How we help” (1–2 lines)
+
+5) Process Section (“How We Work” - 5 steps)
+   Discovery → Architecture → Build → Test → Deploy & Scale
+   Each step: 1 sentence on what happens.
+
+6) Case Studies Section (3 cards)
+   Use “Client: Confidential”
+   For each: Problem / Solution / Tech / Outcome (no unrealistic claims)
+   Make them clearly relevant to Embedded+IoT+Mobile+AI.
+
+7) About Section
+   Use the provided company story (founded 2023, Rosamond CA) and emphasize end-to-end ecosystem engineering.
+
+8) Contact Section
+   - Form fields: Name, Email, Company, Budget range dropdown, Timeline dropdown, Message
+   - “What happens next” (3 bullets)
+   - Show location: Rosamond, California
+
+9) Footer
+   - Company name, tagline, location, founded 2023
+   - Links to sections
+   - Email placeholder: contact@greenimpact.solutions
+
+COPY REQUIREMENTS:
+- Write polished, professional copy based on the company description
+- Avoid buzzwords and generic fluff
+- Make it scannable and conversion-focused
+
+OUTPUT:
+Provide complete file structure and code for all files. Ensure it runs immediately.
