@@ -490,7 +490,7 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center pt-16 overflow-hidden" data-testid="section-hero">
+      <section className="min-h-screen flex items-center pt-24 sm:pt-20 lg:pt-16 overflow-hidden" data-testid="section-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
