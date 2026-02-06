@@ -93,8 +93,6 @@ export default function LandingPage() {
     setMobileMenuOpen(false);
   };
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   const form = useForm<InsertContact>({
     resolver: zodResolver(insertContactSchema),
     defaultValues: {
@@ -107,31 +105,17 @@ export default function LandingPage() {
     },
   });
 
-  const onSubmit = async (data: InsertContact) => {
+  const onSubmit = (data: InsertContact) => {
     // Client-side only form submission (no backend)
     // In a production environment, you would integrate with an email service
     // or form submission service like Formspree, EmailJS, etc.
-    setIsSubmitting(true);
+    console.log("Contact form submission:", data);
     
-    try {
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 500));
-      console.log("Contact form submission:", data);
-      
-      toast({
-        title: "Message sent successfully",
-        description: "We'll get back to you within 24 hours.",
-      });
-      form.reset();
-    } catch (error) {
-      toast({
-        title: "Failed to send message",
-        description: "Please try again or email us directly.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    toast({
+      title: "Message sent successfully",
+      description: "We'll get back to you within 24 hours.",
+    });
+    form.reset();
   };
 
   const services = [
@@ -409,46 +393,39 @@ export default function LandingPage() {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 gap-4">
-            <div className="flex-shrink-0 min-w-0">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex-shrink-0">
               <a 
                 href="#" 
                 onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                className="flex items-center gap-2 min-w-0"
+                className="flex items-center gap-2"
                 data-testid="link-logo"
               >
-                <img src={logoImage} alt="Green Impact Solutions" className="h-[26px] w-[26px] flex-shrink-0" />
-                <span className="text-base sm:text-lg lg:text-xl font-semibold text-foreground truncate">
-                  <span className="hidden sm:inline lg:hidden">Green Impact</span>
-                  <span className="hidden lg:inline">Green Impact Solutions</span>
-                </span>
+                <img src={logoImage} alt="Green Impact Solutions" className="h-[26px] w-[26px]" />
+                <span className="text-xl font-semibold text-foreground hidden sm:inline">Green Impact Solutions</span>
               </a>
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-4 xl:gap-6 flex-shrink-0">
+            <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
-                  className="text-xs xl:text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                   data-testid={`link-nav-${link.label.toLowerCase()}`}
                 >
                   {link.label}
                 </a>
               ))}
-              <Button 
-                onClick={() => scrollToSection("#contact")} 
-                className="text-xs xl:text-sm px-3 xl:px-4"
-                data-testid="button-start-project-nav"
-              >
+              <Button onClick={() => scrollToSection("#contact")} data-testid="button-start-project-nav">
                 Start a Project
               </Button>
             </div>
 
-            {/* Tablet/Mobile Menu Button */}
-            <div className="lg:hidden flex-shrink-0">
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
               <Button 
                 variant="ghost" 
                 size="icon"
@@ -460,13 +437,13 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* Mobile/Tablet Navigation */}
+          {/* Mobile Navigation */}
           {mobileMenuOpen && (
             <motion.div 
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden border-t border-border py-4"
+              className="md:hidden border-t border-border py-4"
             >
               <div className="flex flex-col gap-4">
                 {navLinks.map((link) => (
@@ -490,7 +467,7 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center pt-24 sm:pt-20 lg:pt-16 overflow-hidden" data-testid="section-hero">
+      <section className="min-h-screen flex items-center pt-16 overflow-hidden" data-testid="section-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -1108,7 +1085,7 @@ export default function LandingPage() {
                       data-testid="link-ceo-phone"
                     >
                       <Phone className="h-4 w-4" />
-                      <span className="text-sm">(702) 900-0285</span>
+                      <span className="text-sm">(661) 555-1234</span>
                     </a>
                   </div>
                 </CardContent>
@@ -1241,11 +1218,11 @@ export default function LandingPage() {
                       <Button 
                         type="submit" 
                         className="w-full" 
-                        disabled={isSubmitting}
+                        disabled={contactMutation.isPending}
                         data-testid="button-submit-contact"
                       >
-                        {isSubmitting ? "Sending..." : "Send Message"}
-                        {!isSubmitting && <ArrowRight className="ml-2 h-4 w-4" />}
+                        {contactMutation.isPending ? "Sending..." : "Send Message"}
+                        {!contactMutation.isPending && <ArrowRight className="ml-2 h-4 w-4" />}
                       </Button>
                     </form>
                   </Form>
