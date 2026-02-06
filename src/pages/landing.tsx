@@ -1095,12 +1095,12 @@ export default function LandingPage() {
                       <span className="text-sm">linkedin.com/in/alonso-fernandezz</span>
                     </a>
                     <a 
-                      href="mailto:alonso@greenimpactsolutions.com" 
+                      href="mailto:alonso@greenimpact.solutions" 
                       className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
                       data-testid="link-ceo-email"
                     >
                       <Mail className="h-4 w-4" />
-                      <span className="text-sm">alonso@greenimpactsolutions.com</span>
+                      <span className="text-sm">alonso@greenimpact.solutions</span>
                     </a>
                     <a 
                       href="tel:+16615551234" 
